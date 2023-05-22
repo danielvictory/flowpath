@@ -26,7 +26,6 @@ const FlowPage = (props) => {
 
         return asanas.map((asana) => (
             <div key={asana._id} className="card asana">
-                {/*{console.log(asana)} */}
                 <img alt={asana.english_name +" Pose ("+ asana.sanskrit_name +")"} src={asana.url_png} />
                 <div className="asana-info">
                     <h3>{asana.english_name}</h3>
