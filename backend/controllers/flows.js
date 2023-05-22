@@ -5,7 +5,7 @@ const express = require('express');
 const flowRouter = express.Router();
 
 // Import Schema
-const Flow = require('../models/Flow.js');
+const Flow = require('../models/flow.js');
 
 // Routes 
 

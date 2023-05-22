@@ -27,7 +27,7 @@ mongoose.connection
     .on("error", (error) => console.log(error));
 
 // Set up Models for the database - separate file?
-const Flow = require('./models/Flow.js');
+const Flow = require('./models/flow.js');
 const Asana = require('./models/asana.js')
 
 // Middleware for routes
