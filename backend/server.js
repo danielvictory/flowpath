@@ -37,9 +37,12 @@ app.use(express.json()); // parse json bodies
 app.use(express.urlencoded({extended: true})); // allow url encoding
 
 // Controllers
+// ===== Flows
 const flowsController = require('./controllers/flows');
-console.log(flowsController)
 app.use('/flows', flowsController);
+// ===== Asanas
+const asanasController = require('./controllers/asanas');
+app.use('/asanas', asanasController);
 
 // Routes
 app.get('/', (req, res) => {

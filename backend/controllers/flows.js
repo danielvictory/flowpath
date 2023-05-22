@@ -7,8 +7,6 @@ const flowRouter = express.Router();
 // Import Schema
 const Flow = require('../models/Flow.js');
 
-console.log('in the controller file')
-
 // Routes 
 
 // ===== Index
@@ -40,7 +38,6 @@ flowRouter.put('/:id', async (req, res) => {
 
 // ===== Create
 flowRouter.post('/', async (req, res) => {
-    console.log('trying to post')
     try {
         res.json(await Flow.create(req.body));
     } catch (error) {
