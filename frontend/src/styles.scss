@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    background: tan;
+
+    a {
+        text-decoration: none;
+        padding: 0 5px;
+
+        color: brown;
+    }
+
+    .links, .logo {
+        margin: 10px;
+    }
+}
+
+.card {
+    border: 2px, solid, black;
+}
