@@ -7,16 +7,29 @@ import FlowPage from '../pages/FlowPage';
 const List = () => {
 
     const [ items, setItems ] = useState(null);
+    const [asanas, setAsanas] = useState(null);
 
-    const URL = "http://localhost:3000/flows/";
+    const FlowsURL = "http://localhost:3000/flows/";
+    const AsanasURL = "http://localhost:3000/asanas/"
 
     const getItems = async () => {
-        const response = await fetch(URL);
+        const response = await fetch(FlowsURL);
         const data = await response.json();
         setItems(data);
     }
 
-    useEffect(() => getItems, []);
+    const getAsanas = async () => {
+        const response = await fetch(AsanasURL);
+        const data = await response.json();
+        setAsanas(data);
+    }
+
+    function load() {
+        getItems();
+        getAsanas();
+    }
+
+    useEffect(() => load);
 
     return (  
         <Routes>
@@ -26,6 +39,7 @@ const List = () => {
                 element={
                     <FlowPage
                         flows={items}
+                        asanas={asanas}
                     />
                 }
             />
