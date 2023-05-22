@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Index = (props) => {
     const loading = () => {
@@ -7,10 +8,12 @@ const Index = (props) => {
 
     const loaded = () => {
         return props.items.map((item) => (
-            <div key={item._id} className="card">
-                <h3>{item.name}</h3>
-                <h5>{item.user}</h5>
-            </div>
+            <Link key={item._id} to={`/flows/${item._id}`}>
+                <div  className="card">
+                    <h3>{item.name}</h3>
+                    <h5>{item.user}</h5>
+                </div>
+            </Link>
         ))
     }
 

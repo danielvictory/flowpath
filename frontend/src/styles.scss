@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,7 @@ nav {
     background: tan;
 
     a {
-        text-decoration: none;
+        // text-decoration: none;
         padding: 0 5px;
 
         color: brown;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import Index from '../pages/Index'
+import FlowPage from '../pages/FlowPage';
 
 const List = () => {
 
@@ -19,7 +20,15 @@ const List = () => {
 
     return (  
         <Routes>
-            <Route path="flows" element={<Index items={items} /> } />
+            <Route path="flows" element={ <Index items={items} /> } />
+            <Route
+                path="/flows/:id"
+                element={
+                    <FlowPage
+                        flows={items}
+                    />
+                }
+            />
         </Routes>
     );
 }
