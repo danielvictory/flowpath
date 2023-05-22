@@ -51,3 +51,28 @@ nav {
     margin: 2px;
     border: 3px solid rgb(60, 99, 60);
 }
+
+.asana {
+    display: flex;
+
+    width: 500px;
+
+    img {
+        width: 25%;
+
+        margin: 5px;
+    }
+
+    .asana-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 100%;
+        h3 {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}

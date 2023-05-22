@@ -29,7 +29,11 @@ const List = () => {
         getAsanas();
     }
 
-    useEffect(() => load);
+    const hello = () => {
+        console.log(hello)
+    }
+
+    useEffect(() => {load()}, []);
 
     return (  
         <Routes>
