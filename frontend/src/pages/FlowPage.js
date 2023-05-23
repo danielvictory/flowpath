@@ -1,4 +1,4 @@
-import React from 'react' //, {useEffect}
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
 const FlowPage = (props) => {
@@ -7,13 +7,12 @@ const FlowPage = (props) => {
     const flows = props.flows
     const flow = flows ? flows.find((f) => f._id === id) : null;
 
-    const asanas = []
+    const currentAsanas = []
     const findAsanas = () => {
         flow.asanas.forEach((a) => {
             let nextPose = props.asanas.find((x) => x._id === a)
-            asanas.push(nextPose)
+            currentAsanas.push(nextPose)
         })
-        //console.log(asanas)
     }
 
     const loading = () => {
@@ -24,7 +23,7 @@ const FlowPage = (props) => {
 
         findAsanas()
 
-        return asanas.map((asana) => (
+        return currentAsanas.map((asana) => (
             <div key={asana._id} className="card asana">
                 <img alt={asana.english_name +" Pose ("+ asana.sanskrit_name +")"} src={asana.url_png} />
                 <div className="asana-info">
@@ -34,8 +33,6 @@ const FlowPage = (props) => {
             </div>
         ));
     }
-
-    //useEffect(() => {findAsanas()}, [])
 
     return (
         <div className="container">

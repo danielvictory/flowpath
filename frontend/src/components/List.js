@@ -7,30 +7,25 @@ import FlowPage from '../pages/FlowPage';
 const List = () => {
 
     const [ items, setItems ] = useState(null);
-    //const [asanas, setAsanas] = useState(null);
+    const [asanas, setAsanas] = useState(null);
 
     const FlowsURL = "https://flowpath.onrender.com/flows/";
-    //const AsanasURL = "https://flowpath.onrender.com/asanas/"
-
-    // const getAsanas = async () => {
-    //     const response = await fetch(AsanasURL);
-    //     const data = await response.json();
-    //     setAsanas(data);
-    // }
-
-    // function load() {
-    //     getItems();
-    //     getAsanas();
-    // }
+    const AsanasURL = "https://flowpath.onrender.com/asanas/"
 
     useEffect(() => {
-        //load()
         const getItems = async () => {
             const response = await fetch(FlowsURL);
             const data = await response.json();
             setItems(data);
         }
         getItems();
+
+        const getAsanas = async () => {
+            const response = await fetch(AsanasURL);
+            const data = await response.json();
+            setAsanas(data);
+        }
+        getAsanas();
     }, []);
 
     return (  
@@ -41,7 +36,7 @@ const List = () => {
                 element={
                     <FlowPage
                         flows={items}
-                        // asanas={asanas}
+                        asanas={asanas}
                     />
                 }
             />
