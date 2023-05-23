@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 const FlowPage = (props) => {
 
+    // Get data through props to populate information
     const {id} = useParams();
     const flows = props.flows
     const flow = flows ? flows.find((f) => f._id === id) : null;
@@ -15,6 +16,7 @@ const FlowPage = (props) => {
         })
     }
 
+    // functions for page display before and after load
     const loading = () => {
         return <h1>loading...</h1>
     }
