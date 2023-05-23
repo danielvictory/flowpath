@@ -44,7 +44,7 @@ const Index = (props) => {
 
     const loaded = () => {
         return props.asanas.map((asana) => (
-            <div key={asana._id} className="card asana">
+            <div key={asana._id} className="card asana asana-small">
                 <img alt={asana.english_name +" Pose ("+ asana.sanskrit_name +")"} src={asana.url_png} />
                 <div className="asana-info">
                     <h3>{asana.english_name}</h3>

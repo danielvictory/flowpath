@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import Landing from '../pages/Landing'
 import Index from '../pages/Index'
 import FlowPage from '../pages/FlowPage';
 import AsanaPage from '../pages/AsanaPage'
@@ -79,8 +80,13 @@ const List = () => {
         getAsanas();
     }, []);
 
-    return (  
+    return (
         <Routes>
+            <Route path="/" 
+                element={ 
+                    <Landing/> 
+                } 
+            />
             <Route path="flows" 
                 element={ 
                     <Index items={items} 
