@@ -31,6 +31,17 @@ const List = () => {
         getItems();
     }
 
+    const updateFlow = async (flow, id) => {
+        // make put request to create people
+        await fetch(FlowsURL + id, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify(flow),
+        });
+      }
+
     // populate data on page render
     // async functions placed inside to avoid dependency error
     useEffect(() => {
@@ -54,7 +65,8 @@ const List = () => {
             <Route path="flows" 
                 element={ 
                     <Index items={items} 
-                    createFlow={createFlow}/> 
+                    createFlow={createFlow}
+                    /> 
                 } 
             />
             <Route
@@ -63,6 +75,7 @@ const List = () => {
                     <FlowPage
                         flows={items}
                         asanas={asanas}
+                        updateFlow={updateFlow}
                     />
                 }
             />

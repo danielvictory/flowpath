@@ -1,7 +1,13 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+
+// Dropdown files by Thi Tran, published in TinySo on Medium
+// https://medium.com/tinyso/how-to-create-a-dropdown-select-component-in-react-bf85df53e206
+import Dropdown from '../components/Dropdown'
 
 const FlowPage = (props) => {
+    // Set navigate for redirect use after updating flow
+    const navigate = useNavigate()
 
     // Get data through props to populate information
     const {id} = useParams();
@@ -14,6 +20,31 @@ const FlowPage = (props) => {
             let nextPose = props.asanas.find((x) => x._id === a)
             currentAsanas.push(nextPose)
         })
+    }
+
+    // function for dropdown options
+    const dropLoad = (arr) => {
+        let x = [];
+        arr.forEach(a => {
+            x.push({
+                "value": a._id,
+                "label": a.english_name,
+            })
+        })
+        return x
+    }
+
+    // add asana based on value in the dropdown
+    let asanaIdToAdd
+    const handleAsanaIdToAdd = (val) => {
+        asanaIdToAdd = val
+    }
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        flow.asanas.push(asanaIdToAdd)
+        props.updateFlow(flow, id);
+        navigate(`/flows/${id}`)
     }
 
     // functions for page display before and after load
@@ -39,6 +70,15 @@ const FlowPage = (props) => {
     return (
         <div className="container">
             <h1>{flow.name}</h1>
+            <form onSubmit={handleSubmit}>
+                <Dropdown
+                    isSearchable
+                    placeHolder="Select Asana..."
+                    options={dropLoad(props.asanas)}
+                    onChange={(value) => handleAsanaIdToAdd(value.value)}
+                />
+            <input type="submit" value="Add Asana"/>
+            </form>
             { flow ? loaded() : loading() }
         </div>
     )
