@@ -17,7 +17,9 @@ Create a digitial flow with chosen asanas and leave the pen and paper behind!
 
 ## Warming-Up
 Either choose a flow card to explore
+
 OR
+
 Add a new flow to make your own!
 
 Using the dropdown menu, add your asanas and get flowing!
