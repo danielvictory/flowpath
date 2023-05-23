@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Index from '../pages/Index'
 import FlowPage from '../pages/FlowPage';
+import AsanaPage from '../pages/AsanaPage'
 
 const List = () => {
 
@@ -13,10 +14,17 @@ const List = () => {
     const FlowsURL = "https://flowpath.onrender.com/flows/";
     const AsanasURL = "https://flowpath.onrender.com/asanas/"
 
+    // Make functions available outside of useEffect for page reload
     const getItems = async () => {
         const response = await fetch(FlowsURL);
         const data = await response.json();
         setItems(data);
+    }
+
+    const getAsanas = async () => {
+        const response = await fetch(AsanasURL);
+        const data = await response.json();
+        setAsanas(data);
     }
 
     // Functions to pass through props for REST updates to DB
@@ -29,6 +37,17 @@ const List = () => {
             body: JSON.stringify(flow),
         });
         getItems();
+    }
+
+    const createAsana = async (asana) => {
+        await fetch(AsanasURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json",
+            },
+            body: JSON.stringify(asana),
+        });
+        getAsanas();
     }
 
     const updateFlow = async (flow, id) => {
@@ -66,6 +85,13 @@ const List = () => {
                 element={ 
                     <Index items={items} 
                     createFlow={createFlow}
+                    /> 
+                } 
+            />
+            <Route path="asanas" 
+                element={ 
+                    <AsanaPage asanas={asanas} 
+                    createAsana={createAsana}
                     /> 
                 } 
             />

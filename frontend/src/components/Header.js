@@ -6,7 +6,7 @@ const Header = () => {
     <nav className="nav">
         <Link to="/">
             <div className="logo">
-                flowplan
+                flowpath
             </div>
         </Link>            
         <div className="links">
