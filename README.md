@@ -23,10 +23,10 @@ Using the dropdown menu, add your asanas and get flowing!
 ## Show the Flow!
 
 Flow Index
-![]()
+![Flowpath Index](/frontend/public/flowpathindex.png)
 
 Flow Page with Asanas
-![]()
+![Flow Page with Asanas](/frontend/public/flowpathwithasanaadd.png)
 
 ## Next on the path
 1. User interface - login, storage
