@@ -1,7 +1,7 @@
 # flowpath
 A path for all yogis to tread while choosing asanas for their flows.
 
-[Check out the live beta!](https://jovial-hotteok-cbd4ac.netlify.app)
+[Start to flow with the Live Beta!](https://jovial-hotteok-cbd4ac.netlify.app)
 
 ## Building Blocks
 - HTML
